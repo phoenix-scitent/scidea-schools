@@ -1,9 +1,9 @@
-#require 'rubygems'
-#require 'bundler/setup'
-
-#require 'your_gem_name' # and any other gems you need
+require 'scidea/schools'
 
 ENV["RAILS_ENV"] ||= 'test'
+
+require 'rspec/rails'
+require 'rspec_tag_matchers'
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -21,5 +21,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.extend ControllerMacros, :type => :controller
 
 end
