@@ -1,6 +1,10 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+require "scidea/schools/version"
+
 Gem::Specification.new do |s|
   s.name        = 'scidea-schools'
-  s.version     = '0.1.0'
+  s.version     = Scidea::Schools::VERSION
   s.date        = '2012-01-16'
 
   s.summary     = "Schools extension for the Scitent Scidea platform"

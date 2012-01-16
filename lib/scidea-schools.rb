@@ -1,0 +1,1 @@
+require 'scidea/schools.rb'
