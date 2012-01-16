@@ -1,0 +1,14 @@
+<%= form_tag form_url, :method => 'get', :id => "listview_search" do %>  
+  <%= hidden_field_tag :direction, params[:direction] %>  
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= hidden_field_tag :per_page, params[:per_page] %>  
+  <ol id="schools-search">
+    <li>
+      <label for="search">Search by Name or Zipcode</label>
+      <%= text_field_tag :search, params[:search], { :placeholder => 'e.g., Eastern High School, 12345' } %> 
+    </li>
+    <li>
+      <%= submit_tag "Search", :name => nil %>
+    </li>
+  </ol>
+<% end %>
