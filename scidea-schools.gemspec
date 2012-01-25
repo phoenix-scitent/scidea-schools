@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.summary     = "Schools extension for the Scitent Scidea platform"
   s.description = "Schools augments user's profiles with an associated school, along with interfaces for adding new schools at runtime. Administrators can manage schools and modify learner's schools."
 
-  s.authors     = ["Matt Schaefer"]
-  s.email       = ['mschaefer@scitent.com']
+  s.authors     = ["Phoenix Team"]
+  s.email       = ['phoenix@scitent.com']
 
   s.files       = Dir["{lib}/**/*.rb"]
  
