@@ -1,0 +1,76 @@
+<% css do %>
+  <%= theme_css 'pages/admin_index.css', :media => 'screen' %>
+  <%= theme_css 'components/user_messages.css', :media => 'screen' %>
+<% end %>
+
+<% page_title 'Migrate Users between Educational Institutions' %>
+
+<div id="school-migration-message">
+  <p>You are migrating users from</p>
+  <%= render :partial => 'school', :locals => { :school => @school } %>
+</div>
+
+<p>Choose the educational institution to which you would like to migrate users.</p>
+
+<hr>
+
+<%= render :partial => 'search', :locals => { 
+    :form_url => migration_new_admin_school_path(@school),
+    :params => params } %>
+
+<%= render_widget :paginated_list, :display, {
+  :collection => @target_schools,
+  :entry_name => 'educational institution',
+  :css_class => "",
+  :id => "schools-found",
+  :list_renderer => [
+    :datatable,
+    {
+      :columns => [
+        {
+          :label => "Name",
+          :content => :name,
+          :sort => 'name',
+          :width => "300px"
+        },
+        {
+          :label => "City",
+          :content => :city,
+          :sort => 'city',
+        },
+        {
+          :label => "State",
+          :content => :state,
+          :sort => 'state',
+        },
+        {
+          :label => "Zipcode",
+          :content => :zipcode,
+          :sort => 'zipcode'
+        },
+        {
+          :label => "Users",
+          :content => :user_count,
+          :sort => 'user_count'
+        },
+        {
+          :label => "Approved",
+          :content => lambda{ |item| item.approved ? 'Yes' : 'No' },
+          :sort => 'approve'
+        },
+        :actions => [
+          lambda {|item|
+            link_to 'Choose', confirm_migration_admin_school_path(@school, item), :class => 'do-choose', :title => "Choose"
+          }
+        ]
+      ],
+      :css_class => 'table-blue-zebra',
+      :sort_column => sort_column
+    }
+  ],
+  :header => {
+    :css_class => 'plain'
+  },
+  :navigation => {}
+} %>
+<%= link_to 'Manage Educational Institutions', admin_schools_path %>

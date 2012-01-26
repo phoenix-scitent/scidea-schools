@@ -1,0 +1,60 @@
+<% css do %>
+  <%= theme_css 'pages/admin_index.css', :media => 'screen' %>
+<% end %>
+
+<% page_title 'Manage Educational Institutions' %>
+
+<%= render :partial => 'search', :locals => { :form_url => admin_schools_path, :params => params } %>
+
+<%= render_widget :paginated_list, :display, {
+  :collection => @schools,
+  :entry_name => 'educational institution',
+  :css_class => "",
+  :id => "schools-found",
+  :list_renderer => [
+    :datatable,
+    {
+      :columns => [
+        {
+          :label => "Name",
+          :content => lambda{|item| link_to item.name, admin_school_path(item) },
+          :sort => 'name',
+          :width => "200px"
+        },
+        {
+          :label => "City",
+          :content => :city,
+          :sort => 'city',
+          :width => "150px"
+        },
+        {
+          :label => "State",
+          :content => :state,
+          :sort => 'state',
+        },
+        {
+          :label => "Zipcode",
+          :content => :zipcode,
+          :sort => 'zipcode'
+        },
+        {
+          :label => "Approved",
+          :content => lambda{ |item| item.approved ? 'Yes' : 'No' },
+          :sort => 'approved'
+        },
+        :actions => [
+          :edit, 
+          :delete
+        ]
+      ],
+      :actions_are_admin => true,
+      :css_class => 'table-blue-zebra',
+      :sort_column => sort_column
+    }
+  ],
+  :header => {
+    :css_class => 'plain'
+  },
+  :navigation => {}
+} %>
+<%= link_to 'New Educational Institution', new_admin_school_path %>

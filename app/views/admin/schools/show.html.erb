@@ -1,0 +1,46 @@
+<% page_title 'Educational Institution Detail' %>
+
+<p>
+  <b>Name</b>:
+  <%= @school.name %>
+</p>
+
+<p>
+  <b>Address</b>:
+  <%= @school.address_1 %>
+</p>
+
+<p>
+  <b>Address 2</b>:
+  <%= @school.address_2 if @school.address_2 && !@school.address_2.empty? %>
+</p>
+
+<p>
+  <b>City</b>:
+  <%= @school.city %>
+</p>
+
+<p>
+  <b>State</b>:
+  <%= GeographicalRegions.us_state_by_abbreviation @school.state %>
+</p>
+
+<p>
+  <b>Zipcode</b>:
+  <%= @school.zipcode %>
+</p>
+
+<p>
+  <b>Phone</b>:
+  <%= @school.phone %>
+</p>
+
+<p>
+  <b>Approved</b>:
+  <%= @school.approved ? 'Yes' : 'No' %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_school_path(@school) %> |
+<%= link_to 'Migrate Users to Different Educational Institution', migration_new_admin_school_path(@school) %> |
+<%= link_to 'Manage Educational Institutions', admin_schools_path %>

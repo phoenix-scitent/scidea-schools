@@ -1,0 +1,10 @@
+<address> 
+  <%= school.name %><br />
+  <%= school.address_1 %><br />
+  <% if school.address_2 && !school.address_2.empty? %>
+    <%= school.address_2 %><br />
+  <% end %>
+
+  <%= school.city %>, <%= school.state %> <%= school.zipcode %><br />
+  <%= school.phone %>
+</address>

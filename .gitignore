@@ -1,0 +1,15 @@
+.idea
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/*
+public/system/*
+non-public/system/*
+*.tmproj
+.svn
+Gemfile.lock
+.DS_Store
+.sass-cache
+*.swp
+.autotest
+public/test-assets/

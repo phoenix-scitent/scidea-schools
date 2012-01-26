@@ -1,0 +1,17 @@
+<% page_title 'Confirm User Migration between Educational Institutions' %>
+
+<p><%= pluralize(@school.user_count, 'user') %> will be migrated from</p>
+
+<%= render :partial => 'school', :locals => { :school => @school } %>
+<p>to</p>
+<%= render :partial => 'school', :locals => { :school => @target_school } %>
+
+<p>Are you sure you want to do this?</p>
+
+<%= form_tag create_migration_admin_school_path(@school, @target_school) do %>
+  <%= hidden_field_tag :school_id, @school.id %>
+  <%= hidden_field_tag :target_school_id, @target_school.id %>
+  <%= submit_tag("Yes, Migrate Users") %> | 
+  <%= link_to "No, Choose a Different Institution", migration_new_admin_school_path(@school) %> |
+  <%= link_to 'Manage Educational Institutions', admin_schools_path %>
+<% end %>
