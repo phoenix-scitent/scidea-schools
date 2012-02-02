@@ -1,4 +1,10 @@
+# http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
+
 source :rubygems
+
+gemspec
+
+# gem 'scidea', 'scidea', '~> 0.0.1', :path => '/home/mschaefer/src/phx'
 
 gem 'rails', '= 3.1.3'
 
