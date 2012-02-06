@@ -33,3 +33,9 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+# load local factories which will be added to the factories from scidea.
+Rails.configuration.after_initialize do
+  FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+  FactoryGirl.find_definitions
+end
