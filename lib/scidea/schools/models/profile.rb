@@ -7,12 +7,8 @@ module Scidea
         included do
           belongs_to :school
           validate :school_present_if_educator_audience
-
         end
 
-        module ClassMethods
-        end
-       
         module InstanceMethods
           def audience_is_educator?
             audience && audience.name.downcase == 'educator'

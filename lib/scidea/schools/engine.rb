@@ -1,5 +1,3 @@
-require_relative 'models/profile'
-
 module Scidea
   module Schools
     class Engine < ::Rails::Engine
