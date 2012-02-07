@@ -15,6 +15,8 @@ module Scidea
         Scidea::Plugins::Plugin.on(:user_profile_form_after_profile) { 'schools/profile_form' }
 
         Scidea::Plugins::Plugin.on(:admin_user_profile_after_profile) { 'admin/users/profile_show_school' }
+
+        Scidea::Plugins::Plugin.on(:user_profile_page_js) { 'backbone_apps/school_selector' }
       end
 
       config.to_prepare do
