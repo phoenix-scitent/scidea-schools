@@ -1,0 +1,45 @@
+<% if School.render_form? %>
+  <li id="profile-school">
+    <fieldset id="school-selection-fields">
+      <legend>Educational Institution <abbr title="required">*</abbr></legend>
+      <ol>
+        <li class="string required" id="school-select-zipcode-input">
+          <label for="school-select-zipcode">Educational Institution Zipcode</label>
+          <input type="text"
+                 id="school-select-zipcode"
+                 name="school_zipcode"
+                 data-partial-pattern="\d{5}"
+                 pattern="\d{5}"
+                 data-minlength="5"
+                 maxlength="5"
+                 data-errormessage="Invalid zipcode"
+                 required="required"
+                 placeholder="zipcode"
+                 value="<%= school_select_zipcode(form.object.school, params) %>" />
+        </li>
+
+        <%= form.input :school,
+                               :as => :select,
+                               :collection => [['Select an Educational Institution', '']],
+                               :include_blank => false,
+                               :input_html => {
+                                  :id => 'school-id',
+                                  'data-selected-id' => school_selected_id(form.object.school, params),
+                                  :disabled => "disabled",
+                                  :required => "required"
+                               },
+                               :wrapper_html => { :class => 'select required', :id => 'school-id-input' } %>
+
+      </ol>
+      <p id="schools-initial-message" class="inline-hints">Provide your institution&rsquo;s zipcode before selecting an institution.</p>
+      <p id="schools-not-found-message" class="inline-hints">No institutions were found for zipcode. Try another one or <a href="#select-new-school">use the new institution you added.</a><a href="#add-new-school">add a new institution.</a><%= link_to 'add a new institution.', new_admin_school_path, :id => "admin-new-school" %> </p>
+    </fieldset>
+    <div id="new-school">
+      <p id="new-school-actions" class="inline-hints">
+       <span id="add-school">Don&rsquo;t see your institution? <a href="#add-new-school" style="width: 200px; height: 1em;">Add a new one.</a><%= link_to 'Add a new one.', new_admin_school_path, :id => "admin-new-school" %></span>
+       <span id="edit-school">Made a mistake while typing your institution information? No problem, you can still <a href="#edit-new-school">edit it.</a></span>
+      </p>
+      <div id="new-school-form"></div>
+    </div>
+  </li>
+<% end %>
