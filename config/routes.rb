@@ -14,4 +14,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # non-production routes
+  unless Rails.env.production?
+    namespace 'test' do
+      get 'scidea_schools_qunit_tests', :to => 'scidea_schools_qunit_tests#index'
+      get 'scidea_schools_qunit_tests/*test_names', :to => 'scidea_schools_qunit_tests#index'    
+    end
+  end
+
 end

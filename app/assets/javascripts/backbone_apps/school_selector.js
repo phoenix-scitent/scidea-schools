@@ -389,6 +389,8 @@ function($, _, Backbone, School){
         audienceField : $('#user_profile_attributes_audience_id')
       });
     }
+
+    return SchoolSelectorView;
   }; // anonymous define return function
 
 }); // define

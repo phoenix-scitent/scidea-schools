@@ -5,8 +5,6 @@ require File.expand_path("../../../config/environment",  __FILE__)
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 
 require 'rspec/expectations'
-
-#ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "../../../spec/dummy"
 require 'cucumber/rails'
 
 # Remove this line if your app doesn't have a database.
@@ -18,3 +16,6 @@ Cucumber::Rails::World.use_transactional_fixtures = false
 Before do
   page.driver.options[:resynchronize] = true
 end
+
+# load local factories which will be added to the factories from scidea.
+Dir.glob(File.join(File.dirname(__FILE__), '../../spec/factories/*.rb')).each {|f| require f }

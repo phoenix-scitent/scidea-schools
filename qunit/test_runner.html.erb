@@ -1,0 +1,25 @@
+<% @html_fixtures.each do |fixture| %>
+  <%= render fixture %>
+<% end %>
+
+<% head_js { javascript_include_tag 'qunit.js' } %>
+
+<% css { stylesheet_link_tag 'qunit.css' } %>
+
+<% page_title("QUnit Javascript Test Suite") %>
+
+<div id="qunit-test-results">
+  <h1 id="qunit-header">Scitent QUnit Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+</div>
+
+<div id="qunit-fixture">
+  <%= yield :test_fixture %>
+</div>
+
+<%= page_js do %>
+  <%= raw @test_js %>
+<% end %>

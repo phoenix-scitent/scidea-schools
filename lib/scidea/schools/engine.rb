@@ -8,9 +8,13 @@ module Scidea
         Scidea::Plugins::Plugin.on(:admin_user_form_before_errors)   { 'schools/script_form' }
         Scidea::Plugins::Plugin.on(:user_profile_form_before_errors) { 'schools/script_form' }
 
-        Scidea::Plugins::Plugin.on(:admin_user_form_after_profile)   { 'schools/profile_form' }
-        Scidea::Plugins::Plugin.on(:registration_new_after_profile)  { 'schools/profile_form' }
-        Scidea::Plugins::Plugin.on(:user_profile_form_after_profile) { 'schools/profile_form' }
+        Scidea::Plugins::Plugin.on(:admin_user_form_after_profile)   { profile_form }
+        Scidea::Plugins::Plugin.on(:registration_new_after_profile)  { profile_form }
+        Scidea::Plugins::Plugin.on(:user_profile_form_after_profile) { profile_form }
+
+        def profile_form
+          School.render_form? ? 'schools/profile_form' : nil
+        end
 
         Scidea::Plugins::Plugin.on(:admin_user_profile_after_profile) { 'admin/users/profile_show_school' }
 
