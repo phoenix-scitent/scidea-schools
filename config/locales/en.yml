@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      school:
+        zero:  educational institutions
+        one:   educational institution
+        few:   educational institutions
+        other:   educational institutions
