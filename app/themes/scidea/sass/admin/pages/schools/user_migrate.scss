@@ -1,0 +1,21 @@
+@import "config";
+
+#main #school-migration-message {
+  border-color: #D8CF7B;
+  background-color: #FCFCC7;
+  padding: .75em 1em;
+  @include border-radius(8px);
+  color: #333;
+  @include box-shadow(lighten($color-base, 75%) 0px 2px 3px);
+  margin-bottom: 1.5em;
+  font-size: 120%;
+
+  p {
+    margin-bottom: .5em;
+  }
+
+  address {
+    padding: 0 0 0 4em;
+  }
+}
+

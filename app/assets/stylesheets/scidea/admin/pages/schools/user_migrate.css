@@ -1,0 +1,3 @@
+#main #school-migration-message { border-color: #D8CF7B; background-color: #FCFCC7; padding: .75em 1em; -moz-border-radius: 8px; -webkit-border-radius: 8px; -o-border-radius: 8px; -ms-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; color: #333; -moz-box-shadow: #bfbfbf 0px 2px 3px; -webkit-box-shadow: #bfbfbf 0px 2px 3px; -o-box-shadow: #bfbfbf 0px 2px 3px; box-shadow: #bfbfbf 0px 2px 3px; margin-bottom: 1.5em; font-size: 120%; }
+#main #school-migration-message p { margin-bottom: .5em; }
+#main #school-migration-message address { padding: 0 0 0 4em; }

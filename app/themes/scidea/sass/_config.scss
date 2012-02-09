@@ -1,0 +1,7 @@
+$color-base: #000000; // black to use as basis for all neutral gradients
+
+// Import all the CSS3 and utility mixins that compass provides
+@import "compass";
+
+// Need to import global custom mixins after config variables are set, as the mixins use the variables
+@import "../../global_sass/mixins";
