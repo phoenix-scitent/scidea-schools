@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'shoulda', '>= 3.0.0.beta'
   s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'compass'
 end
