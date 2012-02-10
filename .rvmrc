@@ -1,1 +1,3 @@
-rvm ruby-1.9.2-p180@scidea-schools
+rvm_gemset_create_on_use_flag=1
+rvm 1.9.2-p180
+rvm --create use ruby-1.9.2-p180@scidea-schools
