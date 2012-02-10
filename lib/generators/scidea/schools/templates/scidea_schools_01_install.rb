@@ -1,4 +1,4 @@
-class ScideaSchoolsInstall < ActiveRecord::Migration
+class ScideaSchools01Install < ActiveRecord::Migration
   def up
     create_table "schools" do |t|
       t.string   "name"

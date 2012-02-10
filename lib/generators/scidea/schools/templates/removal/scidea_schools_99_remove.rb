@@ -1,4 +1,4 @@
-class ScideaSchoolsRemove < ActiveRecord::Migration
+class ScideaSchools99Remove < ActiveRecord::Migration
   def up
     drop_table :schools
     remove_column :profiles, :school_id
