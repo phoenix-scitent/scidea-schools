@@ -2,8 +2,8 @@ Feature: admins manage schools
   As an admin I want to manage subtopics
 
   Background:
-    Given all roles are loaded
-    Given default admin menus exist
+    Given there exists a menu element "Educational Institution" linking to "/admin/schools" for menu "Admin Navigation: Secondary"
+
     Given there exists a menu element "Schools" linking to "/admin/schools" for menu "Admin Navigation: Secondary"
     Given I login as a new "scitent admin"
 

@@ -15,6 +15,6 @@ Then /I should see no qunit failures$/ do
 
 end
 
-Given /^I go to the qunit tests$/ do |test_name|
+Given /^I run the qunit tests$/ do
   visit("/test/scidea_schools_qunit_tests")
 end

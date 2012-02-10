@@ -3,5 +3,5 @@ Feature: JavaScript Unit Tests
 
   @javascript
   Scenario: schools in the profile form
-    And I go to the qunit tests
+    And I run the qunit tests
     Then I should see no qunit failures

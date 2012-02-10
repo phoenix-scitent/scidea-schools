@@ -2,14 +2,12 @@ Feature: learners register and select a school with which they are associated
   As a learner, I need to specify my school when I register for the site
 
   Background:
-    Given all roles are loaded
-    Given default admin menus exist
     Given there exists an audience "Educator"
     Given I go to the home page
 
   @javascript
   Scenario: learner chooses educator from audience, but does not see the school fields because there are no schools in the system
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     Then I should not see "zipcode before selecting a school"
@@ -18,7 +16,7 @@ Feature: learners register and select a school with which they are associated
   Scenario: learner chooses school during registration
     Given there exist "4" schools in zipcode "12345"
     Given there exists a school "My Favorite School" in zipcode "12345"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -30,7 +28,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: user searches for school based on zipcode but yields no results
     Given there exist "1" school in zipcode "12345"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "00000"
@@ -40,7 +38,7 @@ Feature: learners register and select a school with which they are associated
   Scenario: user searches for a school twice with two different zipcodes
     Given there exists a school "My Favorite School" in zipcode "12345"
     Given there exists a school "My Least Favorite School" in zipcode "00000"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -52,7 +50,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: learner fails to choose school during registration and fails validation
     Given there exists a school "My Favorite School"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -62,7 +60,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: learner adds a new school during registration and sees that school automatically assigned
     Given there exist "2" schools in zipcode "12345"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -83,7 +81,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: learner adds a school with a zipcode starting with 0
     Given there exist "1" schools in zipcode "01234"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "01234"
@@ -101,7 +99,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: learner fails to add new school during registration because of validation issues
     Given there exist "2" schools in zipcode "12345"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -123,7 +121,7 @@ Feature: learners register and select a school with which they are associated
   @javascript
   Scenario: learner adds a new school, but decides to edit it
     Given there exists "1" school in zipcode "00000"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -150,7 +148,7 @@ Feature: learners register and select a school with which they are associated
     Given there exists form "Profile" of type "Registration"
     Given there exists a school "My Favorite School" in zipcode "12345"
     Given there exists a "required" "text field" field "custom field" in "Profile"
-    When I follow "Sign up"
+    Given I am on the registration page
     And I fill in the core registration fields
     And I select "Educator" from "Profession"
     And I fill in "school-select-zipcode" with "12345"
@@ -181,6 +179,7 @@ Feature: learners register and select a school with which they are associated
     
   @javascript
   Scenario: admin edits user and goes to create a new school
+    Given there exists a menu element "Users" linking to "/admin/users" for menu "Admin Navigation: Secondary"
     Given I login as a new "scitent admin"
     Given there exists learner "aaa@test.local" named "bbb"
     Given user "aaa@test.local" has school "Madison School"
@@ -189,10 +188,11 @@ Feature: learners register and select a school with which they are associated
     And I press "Search"
     When I follow "Edit"
     And I follow "Add a new one." after ".schools-found, .schools-not-found" loads
-    Then I should be on the new school page
+    Then I should be on the new admin school page
     
   @javascript
   Scenario: admin edits user and changes their school
+    Given there exists a menu element "Users" linking to "/admin/users" for menu "Admin Navigation: Secondary"
     Given there exists a school "My New School" in zipcode "00000"
     Given I login as a new "scitent admin"
     Given there exists learner "aaa@test.local" named "bbb"

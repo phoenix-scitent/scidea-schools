@@ -10,12 +10,18 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    
-    when /the new school page/
-      new_admin_school_path
+
+    when /the registration page/
+      '/users/sign_up'
 
     when /the qunit tests/
       "/qunit_tests"
+
+    # Add more mappings here.
+    # Here is an example that pulls values out of the Regexp:
+    #
+    #   when /^(.*)'s profile page$/i
+    #     user_profile_path(User.find_by_login($1))
 
     else
       begin
