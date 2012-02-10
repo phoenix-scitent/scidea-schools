@@ -17,8 +17,7 @@ Gem::Specification.new do |s|
  
   s.homepage    = 'https://github.com/phoenix-scitent/scidea-schools'
 
-  s.add_dependency 'scidea', '~> 0.0.1'
-  s.add_dependency 'rails', ['>= 3.1.3', '< 3.3']
+  s.add_dependency 'rails', '= 3.1.3'
   s.add_dependency 'bartt-ssl_requirement', '1.3.1'
   s.add_dependency 'cancan'
   s.add_dependency 'will_paginate', '~> 3.0'
