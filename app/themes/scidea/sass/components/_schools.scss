@@ -1,0 +1,170 @@
+#school-selection-fields {
+  margin-bottom: .357em;
+
+  legend {
+    display: block;
+    width: 25%;
+    float: left;
+    padding: .35em 5px 0 0;
+    font-size: 1em;
+  }
+  label {
+    @include visuallyhidden;
+  }
+  li {
+    margin-bottom: .25em !important;
+  }
+  p.inline-hints {
+    clear: both;
+    padding-left: 0 !important;
+    .schools-found & {
+      display: none;
+    }
+  }
+}
+#school-select-zipcode {
+  width: 45px !important;
+  min-width: 0 !important;
+  margin-right: 5px;
+}
+#school-select-zipcode-input,
+#school-id-input {
+  float: left;
+  width: auto;
+}
+#main form #school-id-input p.inline-errors {
+  padding: 0;
+  margin: 3px 0 0;
+}
+#school-id {
+  width: 200px;
+}
+#new-school {
+  float: left;
+  width: 72%;
+  margin: 0;
+  padding: 0 0 0 25%;
+
+  .inline-hints {
+    padding-left: 0 !important;
+    margin: 0 !important;
+  }
+}
+#new-school-form {
+  display: none;
+  background: #EFF4FF;
+  border: 1px solid #A5B9C8;
+  @include border-radius(4px);
+  padding: 1.07em 15px;
+  width: 375px;
+
+  .ie7 & {
+    width: 400px;
+  }
+
+  #main form & p.inline-errors {
+    margin: 3px 0 0 100px;
+  }
+
+  .blockOverlay {
+    background: #EFF4FF;
+    @include opacity(.5);
+    @include border-radius(3px);
+  }
+  .blockMsg {
+    border: 1px solid #aaa;
+    @include box-shadow(rgba(0,0,0,.3) 2px 2px 5px);
+    @include border-radius(4px);
+    padding: 5px 10px 3px;
+    color: #444;
+    background: #fff;
+    line-height: 1em;
+
+    .ie7 & .text {
+      position: relative;
+      top: -3px;
+    }
+
+    .icon-loading {
+      background: image-url('scidea/icons/loading_barber_shop_pole.gif') 50% 40% no-repeat;
+      width: 220px;
+      @include inline-block;
+      height: 0px;
+      padding: 20px 0 0;
+      margin-left: 5px;
+    }
+
+  }
+  
+
+  .adding-school &, .editing-school & {
+    display: block;
+  }
+  ol {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  li {
+    margin-bottom: .714em;
+  }
+  input[type="text"] {
+    background: #fff !important;
+    border-color: #ccc;
+  }
+  label {
+    width: 100px;
+  }
+  .buttons {
+    padding-left: 105px !important;
+    margin-bottom: 0 !important;
+  }
+}
+#school_submit {
+  margin-right: 10px;
+}
+#add-school {
+  .schools-found & {
+    display: block;
+  }
+  &, 
+  .adding-school &,
+  .new-school-exists & {
+    display: none;
+  }
+}
+#edit-school {
+  .new-school-exists & {
+    display: block;
+  }
+  &, 
+  .editing-school &,
+  .schools-not-found & {
+    display: none;
+  }
+}
+
+#schools-not-found-message {
+  .schools-not-found & {
+    display: block;
+  }
+  &, .adding-school & {
+    display: none;
+  }
+}
+a[href="#add-new-school"] {
+  .new-school-exists & {
+    display: none;
+  }
+}
+a[href="#select-new-school"] {
+  display: none;
+  .new-school-exists & {
+    display: inline;
+  }
+}
+#schools-initial-message {
+  display: block;
+  .schools-not-found & {
+    display: none;
+  }
+}

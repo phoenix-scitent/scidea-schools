@@ -1,0 +1,6 @@
+<% unless @schools.empty? %>
+  <option value="">Select an institution</option>
+  <% @schools.each do |school| %>
+    <option<%= raw(' selected="selected"') if @selected_school == school %> value="<%= school.id %>"><%= school.name %></option>
+  <% end %>
+<% end %>

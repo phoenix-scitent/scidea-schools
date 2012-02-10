@@ -1,0 +1,16 @@
+<%= test_fixture do %>
+  <% @user = User.new %>
+  <% @profile = Profile.new %>
+  <% Audience.find_or_create_by_name("Educator") %>
+  <script type="text/template" id="new-school-form-tpl">
+    <%= render :partial => 'schools/form' %>
+  </script>
+
+  <%= render :partial => 'shared/form_errors', :locals => { :object => @user } %>
+
+  <%= semantic_form_for(@profile, :url => "#", :method => :get, :html => {:novalidate => nil, :autocomplete => "off"}) do |form| %>
+    <%= render :partial => "schools/profile_form", :locals => {:form => form} %>
+    <%= form.input :audience, :as => :select, :collection => Audience.all, :label => 'Profession', :required => true, :input_html => { :required => 'required', 'data-message' => Profile.error_message(:audience) } %>
+    <%= form.submit %>
+  <% end %>
+<% end %>

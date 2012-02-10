@@ -1,0 +1,19 @@
+<% school = defined?(@school) ? @school : School.new %>
+
+<%= render :partial => 'shared/form_errors', :locals => { :object => school } %>
+
+  <%= semantic_form_for school do |f| %>
+  <%= f.inputs :id => "new-school-fields" do %>
+    <%= f.input :name %>
+    <%= f.input :address_1 %>
+    <%= f.input :address_2 %>
+    <%= f.input :city %>
+    <%= f.input :state, :as => :select, :collection => GeographicalRegions.all_us_states_as_select_field_pairs %>
+    <%= f.input :zipcode, :input_html => { :maxlength => '5' } %>
+    <%= f.input :phone, :as => :string %>
+  <% end %>
+  <fieldset class="buttons">
+    <%= f.submit "#{school.new_record? ? 'Add' : 'Update'} Institution", :id => 'school_submit' %>
+    <a href="#cancel-edit-school">Cancel</a>
+  </fieldset>
+<% end %>

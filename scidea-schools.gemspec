@@ -13,12 +13,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Phoenix Team"]
   s.email       = ['phoenix@scitent.com']
 
-  s.files       = Dir["{lib}/**/*.rb"]
+  s.files       = Dir["{app,lib,config,db,features,qunit,spec}/**/*"] + %w(MIT-LICENSE README.md Rakefile)
  
   s.homepage    = 'https://github.com/phoenix-scitent/scidea-schools'
 
-  s.add_dependency 'scidea', '~> 0.0.1'
-  s.add_dependency 'rails', ['>= 3.1.3', '< 3.3']
+  s.add_dependency 'rails', '= 3.1.3'
   s.add_dependency 'bartt-ssl_requirement', '1.3.1'
   s.add_dependency 'cancan'
   s.add_dependency 'will_paginate', '~> 3.0'
@@ -28,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'shoulda', '>= 3.0.0.beta'
   s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'compass'
 end
