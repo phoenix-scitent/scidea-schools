@@ -1,4 +1,4 @@
-# Scidea Schools
+as# Scidea Schools
 
 Adds school association and lookup to users of Scitent's Scidea LMS platform. This gem is only useful in the context of the proprietary Scidea platform.
 
@@ -33,6 +33,7 @@ To set up your environment for testing, perform the following:
     ```
 
 2. Copy the contents of the Scidea core Gemfile *after* ``gemspec``, and paste it to the end of the Gemfile in the scidea-schools code. When you run rspec/cucumber, they require this Gemfile, thus you need all of the gems that Scidea core requires as well.
+
     ```
     source 'http://rubygems.org'
 
