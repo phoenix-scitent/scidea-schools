@@ -1,4 +1,4 @@
-as# Scidea Schools
+# Scidea Schools
 
 Adds school association and lookup to users of Scitent's Scidea LMS platform. This gem is only useful in the context of the proprietary Scidea platform.
 
