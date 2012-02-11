@@ -7,12 +7,14 @@ class SchoolsController < ApplicationController
     @selected_school = params[:new_school_id] ? School.where("id = ?", params[:new_school_id]).first : nil
     @schools = School.learner_form_search(params[:zipcode], @selected_school)
 
-    render_success    
+    render_success
   end
 
   def create
     @school = School.new params[:school]
-  
+
+    @school.approved = current_user && current_user.is_admin?
+
     if @school && @school.save
       render :json => @school.to_client_model_json
     else

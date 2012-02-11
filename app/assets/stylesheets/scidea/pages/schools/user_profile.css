@@ -49,5 +49,3 @@ a[href="#select-new-school"] { display: none; }
 
 #schools-initial-message { display: block; }
 .schools-not-found #schools-initial-message { display: none; }
-
-#admin-new-school { display: none; }

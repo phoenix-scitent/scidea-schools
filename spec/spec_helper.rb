@@ -16,12 +16,12 @@ require File.expand_path("../../features/support/seed_user_roles.rb", __FILE__)
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true
- 
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -39,6 +39,10 @@ RSpec.configure do |config|
   config.after(:suite) do
     ::SeedUserRoles.clean
   end
+
+  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, :type => :view
+  config.extend ControllerMacros, :type => :controller
 end
 
 # load local factories which will be added to the factories from scidea.
