@@ -6,6 +6,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 
 require 'rspec/expectations'
 require 'cucumber/rails'
+require 'email_spec'
+require 'email_spec/cucumber'
 
 # Remove this line if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
