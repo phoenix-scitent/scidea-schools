@@ -188,7 +188,15 @@ Feature: learners register and select a school with which they are associated
     And I press "Search"
     When I follow "Edit"
     And I follow "Add a new one." after ".schools-found, .schools-not-found" loads
-    Then I should be on the new admin school page
+    And I fill in "Name" with "My Favorite School" within "#new-school-form"
+    And I fill in "Address" with "400 Preston" within "#new-school-form"
+    And I fill in "Address 2" with "Ste 300" within "#new-school-form"
+    And I fill in "City" with "Cville" within "#new-school-form"
+    And I select "Virginia" from "State" within "#new-school-form"
+    And I fill in "Zipcode" with "22902" within "#new-school-form"
+    And I fill in "Phone" with "9876543210" within "#new-school-form"
+    And I press "Add Institution"
+    Then "My Favorite School" should be selected for "school-id"
     
   @javascript
   Scenario: admin edits user and changes their school

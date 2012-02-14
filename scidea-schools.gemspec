@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Phoenix Team"]
   s.email       = ['phoenix@scitent.com']
 
-  s.files       = Dir["{app,lib,config,db,features,qunit,spec}/**/*"] + %w(MIT-LICENSE README.md Rakefile)
+  s.files       = Dir["{app,lib,config,db,features,qunit,spec}/**/*"] + %w(MIT-LICENSE README.md Rakefile CHANGELOG)
  
   s.homepage    = 'https://github.com/phoenix-scitent/scidea-schools'
 

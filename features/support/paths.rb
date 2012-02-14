@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the registration page/
       '/users/sign_up'
 
+    when /the learner dashboard/
+      dashboard_path
+
     when /the qunit tests/
       "/qunit_tests"
 

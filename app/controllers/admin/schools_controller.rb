@@ -12,6 +12,11 @@ module Admin
       root << widget(:paginated_list) << widget(:datatable)
     end
 
+    def initialize
+      super
+      @sort_columns = %w[name city state zipcode approved]
+    end
+
     # GET /schools
     def index
       @schools = School.search(params[:search]).
@@ -110,15 +115,6 @@ module Admin
       if params[:school] && params[:school][:approved]
         school.approved = params[:school][:approved] == '1' 
       end
-    end
-
-
-    def per_page 
-      %w[25 50 100].include?(params[:per_page]) ? params[:per_page] : "25"  
-    end
-
-    def sort_column  
-      %w[name city state zipcode approved].include?(params[:sort]) ? params[:sort] : "name"  
     end
 
   end
