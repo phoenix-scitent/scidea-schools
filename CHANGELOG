@@ -1,2 +1,5 @@
+1.0.3
+  - removed extraneous link to add a new school in the profile form
+
 1.0.2
   - merged DRY search feature into admin controller
