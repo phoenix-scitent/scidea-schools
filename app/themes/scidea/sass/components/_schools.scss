@@ -58,6 +58,11 @@
   padding: 1.07em 15px;
   width: 375px;
 
+  #alert-message {
+    position: static;
+    width: auto;
+  }
+
   .ie7 & {
     width: 400px;
   }

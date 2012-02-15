@@ -1,2 +1,8 @@
+1.0.4
+  - override core styles for alert message on profile form so that messages stays within the form div
+
+1.0.3
+  - removed extraneous link to add a new school in the profile form
+
 1.0.2
   - merged DRY search feature into admin controller

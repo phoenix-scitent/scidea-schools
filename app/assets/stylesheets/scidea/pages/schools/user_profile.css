@@ -17,6 +17,7 @@
 #new-school .inline-hints { padding-left: 0 !important; margin: 0 !important; }
 
 #new-school-form { display: none; background: #EFF4FF; border: 1px solid #A5B9C8; -moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; -khtml-border-radius: 4px; border-radius: 4px; padding: 1.07em 15px; width: 375px; }
+#new-school-form #alert-message { position: static; width: auto; }
 .ie7 #new-school-form { width: 400px; }
 #main form #new-school-form p.inline-errors { margin: 3px 0 0 100px; }
 #new-school-form .blockOverlay { background: #EFF4FF; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; -ms-border-radius: 3px; -khtml-border-radius: 3px; border-radius: 3px; }
