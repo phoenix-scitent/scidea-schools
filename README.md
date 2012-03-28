@@ -8,7 +8,7 @@ Adds school association and lookup to users of Scitent's Scidea LMS platform. Th
 
     ```
     # Gemfile
-    gem 'requirejs-rails'
+    gem 'scidea-schools'
     ```
 
 2. Add the installation migrations to your ``db/migrate/`` folder:
@@ -32,7 +32,7 @@ To set up your environment for testing, perform the following:
     gem 'scidea-schools', :path => 'LOCAL_PATH_TO_SCIDEA-SCHOOLS'
     ```
 
-2. Copy the contents of the Scidea core Gemfile *after* ``gemspec``, and paste it to the end of the Gemfile in the scidea-schools code. When you run rspec/cucumber, they require this Gemfile, thus you need all of the gems that Scidea core requires as well.
+2. Add the scidea gem to the scidea-schools Gemfile and add the path to your Scidea core instance. Then, copy the contents of the Scidea core Gemfile *after* ``gemspec``, and paste it to the end of the Gemfile in the scidea-schools code. When you run rspec/cucumber, they require this Gemfile, thus you need all of the gems that Scidea core requires as well.
 
     ```
     source 'http://rubygems.org'
@@ -41,26 +41,15 @@ To set up your environment for testing, perform the following:
 
     gem 'scidea', :path => 'LOCAL_PATH_TO_SCIDEA-CORE'
 
-    #from scidea core Gemfile:
-    gem 'rails', '= 3.1.3'
+    # contents of scidea core Gemfile here....
 
-    # db
-    gem 'mysql2', '>= 0.3'
-
-    # authentication and authorization
-    gem 'devise', '< 2.0'
-    gem 'cancan'
-    
-    ... and so on
     ```
 
 From scidea-schools, you can run ``rspec`` and ``cucumber``. Note that FactoryGirl factories from the Scidea core are included in the testing runtime and added to whatever you include in ``spec/factories``. The database configuration from the Scidea core will also be used. You must run all rake operations for that database in the context of the Scidea core folder. They will not work in the scidea-schools folder.
 
 ## Compiling CSS and Inclusion in the Asset Pipeline
 
-[SASS](https://github.com/nex3/sass) and [Compass](https://github.com/chriseppstein/compass) are configured such that SASS files under the ``app/themes/scidea`` directory are compiled to ``app/assets/stylesheets/scidea`` when you run ``compass compile``.
-
-Because these stylesheets are added to the ``app/assets/stylesheets`` directory, they will be included in the Scidea core asset pipeline. However, because they are not ``scss`` files, Rails won't pick them up during the assets compile task. Therefore, any ``css`` file you add to ``app/assets/stylesheets`` must be included in the assets initializer: ``config/initializers/schools_assets.rb``.
+Stylesheets from ``app/themes/scidea`` are added to the ``app/assets/stylesheets`` directory as a part of the asset pipeline. However, because they are not ``scss`` files, Rails won't pick them up during the assets compile task. Therefore, any ``css`` file you add to ``app/assets/stylesheets`` must be included in the assets initializer: ``config/initializers/schools_assets.rb``.
 
 ## JS Modules
 
