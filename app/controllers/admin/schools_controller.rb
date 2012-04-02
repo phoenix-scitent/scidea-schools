@@ -68,9 +68,16 @@ module Admin
     # DELETE /schools/1
     def destroy
       @school = School.where("id = ?", params[:id]).first
-      @school.destroy
-
-      redirect_to(admin_schools_path, :flash => { :success => "Educational institution was successfully deleted." }) 
+      if @school.destroy
+        flash_message = { :success => "Educational institution was successfully deleted." }
+      else
+        if @school && @school.errors[:base] && @school.errors[:base].count > 0
+          flash_message = { :failure => @school.errors[:base].first }
+        else
+          flash_message = { :failure => "Educational Insitution could not be deleted" }
+        end
+      end
+      redirect_to(admin_schools_path, :flash => flash_message)
     end
 
     # GET /schools/1/migration/new

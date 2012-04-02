@@ -14,6 +14,8 @@ class School < ActiveRecord::Base
 
   validate :zipcode_formatting
   validate :phone_formatting
+  
+  before_destroy :do_not_delete_if_dependencies
 
   ZIPCODE_PATTERN = /^[\d]{5}$/
 
@@ -88,6 +90,14 @@ class School < ActiveRecord::Base
 
   def zipcode_formatting
     errors.add(:zipcode, "must be five numbers") unless zipcode && zipcode.match(ZIPCODE_PATTERN)
+  end
+  
+  def do_not_delete_if_dependencies
+    # if any users have this school, do not delete it
+    if self.profiles.count > 0
+      self.errors.add(:base, "Educational institution #{self.name} was not deleted because it is tied to user profiles. Before deleting #{self.name} use the migration feature to migrate these users to other educational institutions.")
+      return false
+    end
   end
 
 end
