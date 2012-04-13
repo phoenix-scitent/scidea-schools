@@ -14,6 +14,15 @@ module Scidea
         Scidea::Plugins::Plugin.on(:admin_user_profile_after_profile) { 'admin/users/profile_show_school' }
 
         Scidea::Plugins::Plugin.on(:user_profile_page_js) { 'backbone_apps/school_selector' }
+
+        Scidea::Plugins::Plugin.on(:after_admin_primary_navigation_users_menu) do |callback, menu| 
+
+          menu.item :schools, 
+                   'Schools',
+                   callback.view_binding.eval('admin_schools_path')
+                   {}
+
+        end
       end
 
       config.to_prepare do

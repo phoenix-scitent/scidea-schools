@@ -1,5 +1,5 @@
 module Admin
-  class SchoolsController < ApplicationController
+  class SchoolsController < AdminController
 
     ssl_exceptions
 
