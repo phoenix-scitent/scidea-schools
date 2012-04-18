@@ -1,5 +1,5 @@
 <% css do %>
-  <%= theme_css 'pages/admin_index.css', :media => 'screen' %>
+  <%= theme_css 'layouts/index', :media => 'screen' %>
 <% end %>
 
 <% page_title 'Manage Educational Institutions' %>
@@ -48,7 +48,7 @@
         ]
       ],
       :actions_are_admin => true,
-      :css_class => 'table-blue-zebra',
+      :css_class => 'datatable',
       :sort_column => sort_column
     }
   ],

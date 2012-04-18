@@ -1,4 +1,4 @@
-<%= form_tag form_url, :method => 'get', :id => "listview_search" do %>  
+<%= form_tag form_url, :method => 'get', :id => "listview_search", :role => 'search' do %>  
   <%= hidden_field_tag :direction, params[:direction] %>  
   <%= hidden_field_tag :sort, params[:sort] %>
   <%= hidden_field_tag :per_page, params[:per_page] %>  

@@ -1,12 +1,12 @@
 <% css do %>
-  <%= theme_css 'pages/admin_index.css', :media => 'screen' %>
+  <%= theme_css 'layouts/index.css', :media => 'screen' %>
   <%= stylesheet_link_tag 'scidea/admin/pages/schools/user_migrate' %>
 <% end %>
 
 <% page_title 'Migrate Users between Educational Institutions' %>
 
 <div id="school-migration-message">
-  <p>You are migrating users from</p>
+  <p>You are migrating users from:</p>
   <%= render :partial => 'school', :locals => { :school => @school } %>
 </div>
 
@@ -64,7 +64,7 @@
           }
         ]
       ],
-      :css_class => 'table-blue-zebra',
+      :css_class => 'datatable',
       :sort_column => sort_column
     }
   ],
