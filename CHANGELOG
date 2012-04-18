@@ -1,3 +1,6 @@
+1.1
+	- adds a Schools menu item to the admin UI primary nav
+
 1.0.4
   - override core styles for alert message on profile form so that messages stays within the form div
 
