@@ -1,26 +1,26 @@
 Given /^there exists form "([^"]*)"(?: of type "([^"]*)")?$/ do |form_name, form_type_name|
   form_type_name ||= 'My Form Type'
-  Factory :form, :name => form_name, :form_type => Factory(:form_type, :name => form_type_name)
+  FactoryGirl.create :form, :name => form_name, :form_type => FactoryGirl.create(:form_type, :name => form_type_name)
 end
 
 Given /^there exists an? "([^"]*)" "([^"]*)" field "([^"]*)" in "([^"]*)"$/ do |optional_or_required, field_type, field_name, form_name|
-  form = Form.find_by_name(form_name) || Factory( :form, :name => form_name )
-  form_section = form.form_sections.last || Factory( :form_section, :form => form )
+  form = Form.find_by_name(form_name) || FactoryGirl.create( :form, :name => form_name )
+  form_section = form.form_sections.last || FactoryGirl.create( :form_section, :form => form )
 
   required = optional_or_required == 'required'
   field_sym = ('form_field_' + field_type.downcase.gsub(/ /, '_')).to_sym #converts field type string to factory symbol
-  Factory field_sym, :name => field_name, :form_section => form_section, :required => required
+  FactoryGirl.create field_sym, :name => field_name, :form_section => form_section, :required => required
 end
 
 Given /^there exists an? "([^"]*)" field "([^"]*)" in "([^"]*)" with options "([^"]*)"$/ do |field_type, field_name, form_name, option_list|
-  form = Form.find_by_name(form_name) || Factory( :form, :name => form_name )
-  form_section = form.form_sections.first || Factory( :form_section, :form => form )
+  form = Form.find_by_name(form_name) || FactoryGirl.create( :form, :name => form_name )
+  form_section = form.form_sections.first || FactoryGirl.create( :form_section, :form => form )
 
   field_sym = ('form_field_' + field_type.downcase.gsub(/ /, '_')).to_sym #converts field type string to factory symbol
-  field = Factory field_sym, :name => field_name, :form_section => form_section
+  field = FactoryGirl.create field_sym, :name => field_name, :form_section => form_section
 
   option_list.split(',').each do |option|
-    Factory :form_field_option_value, :form_field => field, :value => option.strip
+    FactoryGirl.create :form_field_option_value, :form_field => field, :value => option.strip
   end
 end
 

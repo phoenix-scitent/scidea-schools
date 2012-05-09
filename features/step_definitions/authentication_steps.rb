@@ -11,7 +11,7 @@ Given /^I login as a new "([^"]*)"$/ do |user_role|
     'user admin' => :user_user_admin,
     'learner' => :user_learner
   }
-  user = Factory(role_to_factory[user_role], :password => password)
+  user = FactoryGirl.create(role_to_factory[user_role], :password => password)
 
   step %{I logout}
   visit('/')

@@ -1,16 +1,14 @@
-define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'backbone_apps/models/school',
-  'jquery_plugins/jquery.formparams',
-  'jquery_plugins/jquery.blockUI-2.3.7'
-],
-function($, _, Backbone, School){
+//= require jquery_plugins/jquery.formparams
+//= require jquery_plugins/jquery.blockUI-2.3.7
+//= require backbone-0.5.3
+//= require underscore-1.2.4
+//= require backbone_apps/models/school
+//= require_self
 
+;(function(app, $, window, document, undefined) {
   $.blockUI.defaults.css = {};
 
-  var SchoolSelectorView = Backbone.View.extend({
+  app.SchoolSelectorView = Backbone.View.extend({
     newSchoolForm : $($('#new-school-form-tpl').html()).html(),
 
     stateDefs : {
@@ -84,7 +82,7 @@ function($, _, Backbone, School){
         $zipcodeField.trigger('keydown');
       }
 
-      this.school = new School();
+      this.school = new app.School();
     },
 
     addNewSchool : function(e) {
@@ -380,17 +378,14 @@ function($, _, Backbone, School){
     });
 
   // called when plugin is loaded and document is ready
-  return function($) {
+  $(function() {
     var $schoolSelectorEl = $('#profile-school'); 
 
     if($schoolSelectorEl.length) {
-      new SchoolSelectorView({
+      new app.SchoolSelectorView({
         el : $schoolSelectorEl.get(),
         audienceField : $('#user_profile_attributes_audience_id')
       });
     }
-
-    return SchoolSelectorView;
-  }; // anonymous define return function
-
-}); // define
+  });
+}(namespace('Scidea'), jQuery, window, document));

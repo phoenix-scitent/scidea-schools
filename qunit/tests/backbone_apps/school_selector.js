@@ -1,5 +1,6 @@
-require(['backbone_apps/school_selector'], function(plugin) {
-  var SchoolSelectorView = plugin($);
+$(function() {
+
+  var SchoolSelectorView = app.SchoolSelectorView;
 
   module("School Selector Tests");
 

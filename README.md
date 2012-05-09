@@ -32,7 +32,7 @@ To set up your environment for testing, perform the following:
     gem 'scidea-schools', :path => 'LOCAL_PATH_TO_SCIDEA-SCHOOLS'
     ```
 
-2. Add the scidea gem to the scidea-schools Gemfile and add the path to your Scidea core instance. Then, copy the contents of the Scidea core Gemfile *after* ``gemspec``, and paste it to the end of the Gemfile in the scidea-schools code. When you run rspec/cucumber, they require this Gemfile, thus you need all of the gems that Scidea core requires as well.
+2. Add the scidea gem to the scidea-schools Gemfile and add the path to your Scidea core instance. Then, copy the contents of the Scidea core Gemfile *after* ``gemspec`` (overwriting anything currently there), and paste it to the end of the Gemfile in the scidea-schools code. When you run rspec/cucumber, they require this Gemfile, thus you need all of the gems that Scidea core requires as well.
 
     ```
     source 'http://rubygems.org'
@@ -45,7 +45,7 @@ To set up your environment for testing, perform the following:
 
     ```
 
-From scidea-schools, you can run ``rspec`` and ``cucumber``. Note that FactoryGirl factories from the Scidea core are included in the testing runtime and added to whatever you include in ``spec/factories``. The database configuration from the Scidea core will also be used. You must run all rake operations for that database in the context of the Scidea core folder. They will not work in the scidea-schools folder.
+From scidea-schools, you can run ``bundle exec rspec`` and ``bundle exec cucumber``. Note that FactoryGirl factories from the Scidea core are included in the testing runtime and added to whatever you include in ``spec/factories``. The database configuration from the Scidea core will also be used. You must run all rake operations for that database in the context of the Scidea core folder. They will not work in the scidea-schools folder.
 
 ## Compiling CSS and Inclusion in the Asset Pipeline
 
@@ -55,7 +55,7 @@ Stylesheets from ``app/themes/scidea`` are added to the ``app/assets/stylesheets
 
 JS modules live in the ``app/assets/javascript`` directory. This puts them in the asset pipeline when the gem is inlcuded with Rails and the Scidea core.
 
-To work with the core, they must be written as [RequireJS AMDs](http://requirejs.org/). In order for the modules to work in production mode and to be compiled during assets precompilation in the core, you must include them in the requirejs-rails configuration file, ``config/requirejs.yml``.
+The plugin can assume that the core loads jquery, so shouldn't require this again.
 
 ----
 

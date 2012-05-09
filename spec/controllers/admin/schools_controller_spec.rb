@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe Admin::SchoolsController do
-  let(:admin) { Factory.create(:user_user_admin) }
-  let(:school) { Factory.create :school }
+  let(:admin) { FactoryGirl.create(:user_user_admin) }
+  let(:school) { FactoryGirl.create :school }
   
   describe "DELETE :destroy" do
     context "school has a user" do
       login_scitent_admin
 
       before do
-        Factory :profile, :school => school
+        FactoryGirl.create :profile, :school => school
       end
 
       it "does not delete the school when it is tied to a profile" do

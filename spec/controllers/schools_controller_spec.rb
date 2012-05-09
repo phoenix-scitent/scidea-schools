@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe SchoolsController do
-  let(:user) { Factory.create(:user) }
-  let(:admin) { Factory.create(:user_user_admin) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:admin) { FactoryGirl.create(:user_user_admin) }
   let(:school) { mock_model(School).as_null_object }
 
 

@@ -1,13 +1,10 @@
-define([
-  'backbone',
-],
-function(Backbone){
+//= require backbone-0.5.3
+//= require_self
 
-  return Backbone.Model.extend({
+(function(app, $, window, document, undefined) {
+  app.School = Backbone.Model.extend({
     url : function() {
       return '/schools' + (this.id ? '/' + this.id : '');
-    }
+    }    
   });
-
-});
-
+}(namespace('Scidea'), jQuery, window, document));
