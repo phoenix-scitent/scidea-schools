@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gemspec
 
-gem 'scidea', :path => '/Users/btaitelb/projects/scidea'
+gem 'scidea', :path => '../scidea'
 
 gem 'rails', '>= 3.2'
 
