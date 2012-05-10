@@ -13,7 +13,7 @@ Feature: edit seminar application
     Given there exists a "dropdown list" field "my dropdown list" in "my application" with options "first,second,third"
     Given field "my text" in seminar application form "my application" for user "one@scitent.com" is set to "blah"
     Given field "my dropdown list" in seminar application form "my application" for user "one@scitent.com" is set to "second"
-    When I follow "Seminars"
+    When I go to the seminars admin page
     And I follow "All Applications"
     And I should see "aaa, aaa"
     And I should see "Displaying 1 seminar application"

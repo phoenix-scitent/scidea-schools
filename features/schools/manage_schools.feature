@@ -79,7 +79,7 @@ Feature: admins manage schools
   @javascript
   Scenario: admin deletes a school
     Given there exists a school "UVA"
-    When I follow "Schools"
+    When I go to the schools admin page
     Then I should see "UVA"
     When I follow "Delete"
     When I accept the popup

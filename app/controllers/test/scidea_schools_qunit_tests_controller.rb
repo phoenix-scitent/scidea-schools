@@ -7,7 +7,7 @@ module Test
       @html_fixtures = html_fixtures 
       @test_js = test_js
 
-      render File.join(qunit_path, 'test_runner')
+      render File.join(qunit_path, 'test_runner'), :formats => [:html]
     end
 
     private

@@ -20,6 +20,10 @@ module NavigationHelpers
     when /the qunit tests/
       "/qunit_tests"
 
+    # Handle all admin index pages
+    when /the ([a-z ]+s) admin page/
+      send("admin_#{$1.gsub(' ', '_')}_path")
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

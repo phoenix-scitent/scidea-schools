@@ -2,7 +2,7 @@
   <%= render fixture %>
 <% end %>
 
-<% head_js { javascript_include_tag 'qunit.js' } %>
+<% js { javascript_include_tag 'qunit.js' } %>
 
 <% css { stylesheet_link_tag 'qunit.css' } %>
 
@@ -20,6 +20,8 @@
   <%= yield :test_fixture %>
 </div>
 
-<%= page_js do %>
-  <%= raw @test_js %>
+<% js do %>
+  <script type="text/javascript">
+    <%= raw @test_js %>
+  </script>
 <% end %>

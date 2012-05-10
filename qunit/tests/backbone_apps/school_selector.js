@@ -1,5 +1,4 @@
-$(function() {
-
+;(function(app, $, window, document, undefined) {
   var SchoolSelectorView = app.SchoolSelectorView;
 
   module("School Selector Tests");
@@ -48,4 +47,4 @@ $(function() {
     equals(zipcode.prop('validationMessage'), "Invalid zipcode", "custom error message shows");
   });
 
-});
+}(namespace('Scidea'), jQuery, window, document));

@@ -1,3 +1,6 @@
+1.2
+  - PHX-1009 removes requirejs dependency in favor of rails asset pipeline
+
 1.1
   - adds a Schools menu item to the admin UI primary nav
 
