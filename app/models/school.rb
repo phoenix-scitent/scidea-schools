@@ -32,15 +32,13 @@ class School < ActiveRecord::Base
   def self.learner_form_search(zipcode, user_created_school = nil)
     return [] unless zipcode && zipcode.match(ZIPCODE_PATTERN)
 
-    schools = where('zipcode = ?', zipcode).where('approved = true').order('name asc').all
+    conditions = "zipcode = #{zipcode} AND approved = true"
     
-    # the school the user created should be included in the returned list only if these conditions are met
-    if user_created_school && user_created_school.zipcode == zipcode && !user_created_school.approved
-      schools << user_created_school
-      schools.sort! { |a,b| a.name <=> b.name } # sort the user_created_school into the right location
-    end
+    # the school user created should be included in the return list only if conditions below are met
+    conditions += " OR (approved = false AND id = #{user_created_school.id})" if user_created_school &&
+        user_created_school.zipcode == zipcode && !user_created_school.approved
 
-    schools
+    School.all(:conditions => conditions, :order => "name asc")
   end
 
   def self.search(name_or_zipcode)
