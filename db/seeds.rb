@@ -19,7 +19,7 @@ MenuElementTranslation.find_or_create_by_display_name(
               :menu_element_type => 'MenuElement')
 
 MenuElementTranslation.find_or_create_by_display_name(
-              :display_name => "Établissements d'Enseignement", 
+              :display_name => "Etablissements d'Enseignement", 
               :locale => 'fr',
               :menu_element => menu_element.id,
               :menu_element_type => 'MenuElement')
