@@ -1,4 +1,8 @@
 <% if user.profile.school %>
   <dt>Educational Institution:</dt>
   <dd><%= user.profile.school.name %></dd>
+  <dt>School State:</dt>
+  <dd><%= user.profile.school.state %></dd>
+  <dt>Zipcode:</dt>
+  <dd><%= user.profile.school.zipcode %></dd>
 <% end %>
