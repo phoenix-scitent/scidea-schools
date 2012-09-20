@@ -35,7 +35,7 @@ class School < ActiveRecord::Base
     conditions = "zipcode = #{zipcode} AND approved = true"
     
     # the school user created should be included in the return list only if conditions below are met
-    conditions += " OR (approved = false AND id = #{user_created_school.id})" if user_created_school &&
+    conditions += " OR id = #{user_created_school.id}" if user_created_school &&
         user_created_school.zipcode == zipcode && !user_created_school.approved
 
     School.all(:conditions => conditions, :order => "name asc")
